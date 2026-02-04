@@ -133,7 +133,8 @@ This script performs the following steps:
    
    Note: The dataset is derived from internal Google Analytics tracking data and is not publicly available.
 
-4. Run:
+3. Run:
+   
    python analysis.py
 
 
