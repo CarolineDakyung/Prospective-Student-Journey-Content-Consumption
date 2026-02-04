@@ -72,10 +72,14 @@ A refined funnel classification introduced cross-shopping and category-level seg
 OLS regression models were estimated using statsmodels:
 
 1. Engagement Time Model
+   
+   ```python
    EngTime ~ FunnelStage + UserType
 
 2. Engagement Rate Model
-   EngRate ~ FunnelStage × UserType
+   
+   ```python
+   EngRate ~ FunnelStage * UserType
 
 Additional models were estimated on capped and filtered datasets.
 
@@ -105,6 +109,7 @@ These results suggest structural friction in evaluative-stage content.
 ## Repository Structure
 
 ├── analysis.py # Main analysis script
+
 ├── README.md # Project documentation
 
 ---
