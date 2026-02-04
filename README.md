@@ -106,11 +106,20 @@ These results suggest structural friction in evaluative-stage content.
 
 ---
 
-## Repository Structure
+## Pipeline Process
 
-├── analysis.py # Main analysis script
+1. `analysis.py` – Data Cleaning, Funnel Construction, and Regression Analysis
 
-├── README.md # Project documentation
+This script performs the following steps:
+
+- Loads Google Analytics tracking data
+- Cleans and standardizes engagement metrics
+- Constructs user funnel stages from page paths
+- Engineers behavioral features
+- Fits OLS regression models on engagement time and rate
+- Analyzes behavioral differences between new and established users
+- Generates summary tables for interpretation
+
 
 ---
 
@@ -121,8 +130,10 @@ These results suggest structural friction in evaluative-stage content.
    pip install pandas numpy statsmodels
 
 2. Place the Excel dataset in the project directory.
+   
+   Note: The dataset is derived from internal Google Analytics tracking data and is not publicly available.
 
-3. Run:
+4. Run:
    python analysis.py
 
 
