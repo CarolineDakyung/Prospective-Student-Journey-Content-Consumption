@@ -1,20 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[9]:
-
-
 import pandas as pd
 import numpy as np
 
 
-# In[2]:
-
-
-df = pd.read_excel('msba_only2.xlsx', header = 1)
-
-
-# In[3]:
+# Load Excel file exported from Google Analytics
 
 
 df.columns = [
@@ -35,9 +23,6 @@ df.columns = [
 df.head()
 
 
-# In[4]:
-
-
 are_identical = df['EngRate'].equals(df['EngRate1'])
 print(f"EngRate columns are identical: {are_identical}")
 
@@ -51,19 +36,7 @@ are_identical = df['Sessions'].equals(df['Sessions1'])
 print(f"EngTime columns are identical: {are_identical}")
 
 
-# In[5]:
-
-
 df = df.drop(columns = ['EngRate1', 'KeyEvents1', 'EngTime1', 'Sessions1'])
-
-
-# In[6]:
-
-
-#df.to_csv('cleaned_msba_data.csv', index=False)
-
-
-# In[7]:
 
 
 import statsmodels.formula.api as smf
@@ -89,9 +62,6 @@ model_rate = model_rate = smf.ols(
 print(model_time.summary())
 
 print(model_rate.summary())
-
-
-# In[10]:
 
 
 def categorize_refined(path):
@@ -134,9 +104,6 @@ df['EngTime_Capped'] = np.where(df['EngTime'] > cap_value, cap_value, df['EngTim
 df_active = df[df['EngTime'] > 0].copy()
 
 
-# In[11]:
-
-
 model_time2 = smf.ols('EngTime_Capped ~ C(FunnelStage) + C(UserType)', data=df_active).fit()
 
 model_rate2 = model_rate = smf.ols(
@@ -147,9 +114,6 @@ model_rate2 = model_rate = smf.ols(
 print(model_time2.summary())
 
 print(model_rate2.summary())
-
-
-# In[17]:
 
 
 pivot_rate = df_active.pivot_table(
@@ -200,9 +164,6 @@ pivot_vol = df.pivot_table(
 funnel_shape = pivot_vol.div(pivot_vol.sum(axis=0), axis=1)
 print("\n--- Funnel Shape (% of Traffic) ---")
 print(funnel_shape)
-
-
-# In[18]:
 
 
 df_clean = df[
