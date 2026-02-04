@@ -2,7 +2,13 @@ import pandas as pd
 import numpy as np
 
 
-# Load Excel file exported from Google Analytics
+# Load Excel file exported from Google Analytics (UCLA internal data)
+# NOTE: Raw data is not publicly available due to privacy restrictions.
+# Replace 'msba_only2.xlsx' with your own exported file if reproducing.
+
+DATA_PATH = "msba_only2.xlsx"
+
+df = pd.read_excel(DATA_PATH, header=1)
 
 
 df.columns = [
