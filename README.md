@@ -109,6 +109,7 @@ These results suggest structural friction in evaluative-stage content.
 ## Pipeline Process
 
 This project is implemented in a single script:
+
 `analysis.py` – End-to-end data processing and modeling pipeline
 
 Workflow:
