@@ -108,18 +108,24 @@ These results suggest structural friction in evaluative-stage content.
 
 ## Pipeline Process
 
-1. `analysis.py` – Data Cleaning, Funnel Construction, and Regression Analysis
+This project is implemented in a single script:
+`analysis.py` – End-to-end data processing and modeling pipeline
 
-This script performs the following steps:
+Workflow:
 
-- Loads Google Analytics tracking data
-- Cleans and standardizes engagement metrics
-- Constructs user funnel stages from page paths
-- Engineers behavioral features
-- Fits OLS regression models on engagement time and rate
-- Analyzes behavioral differences between new and established users
-- Generates summary tables for interpretation
+1. Load raw Google Analytics data (Excel export)
 
+2. Preprocess and clean engagement metrics
+
+3. Construct funnel stages based on URL patterns
+
+4. Engineer behavioral features
+
+5. Fit regression models
+
+6. Generate summary tables and figures
+
+All steps are executed sequentially in a single script.
 
 ---
 
